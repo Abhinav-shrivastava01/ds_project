@@ -1,0 +1,4 @@
+Library,Cafeteria,5
+Cafeteria,Hostel,7
+Library,Admin,10
+Admin,Hostel,3
