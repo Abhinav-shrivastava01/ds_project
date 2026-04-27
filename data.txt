@@ -1,4 +1,27 @@
-Library,Cafeteria,5
-Cafeteria,Hostel,7
-Library,Admin,10
-Admin,Hostel,3
+# Campus Navigator Data File
+# Format: Source,Destination,Distance(meters)
+# ==================================================
+
+Admin,Health_Center,100
+Admin,Library,350
+Admin,Main_Gate,160
+Admin,Student_Center,130
+Bookstore,Cafeteria,70
+Bookstore,Hostel_North,140
+Business,Mathematics,200
+Business,Student_Center,150
+Cafeteria,Hostel_North,180
+Cafeteria,Hostel_South,220
+Cafeteria,Student_Center,90
+Computer_Science,Engineering,80
+Computer_Science,Library,120
+Engineering,Physics_Lab,60
+Gym,Health_Center,140
+Gym,Sports_Field,180
+Gym,Student_Center,120
+Hostel_North,Hostel_South,120
+Hostel_North,Library,250
+Hostel_South,Library,300
+Library,Main_Gate,400
+Library,Mathematics,150
+Main_Gate,Student_Center,200
