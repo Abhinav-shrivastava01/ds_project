@@ -55,4 +55,5 @@ A graph-based navigation system that finds the shortest path between buildings o
 - **Type:** Backtracking / Recursive DFS
 - **Time Complexity:** O(V!) in worst case (bounded by max_depth)
 - **Space Complexity:** O(V)
-
+## Run
+streamlit run app.py

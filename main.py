@@ -3,68 +3,65 @@ from dijkstra import get_path_details, find_all_paths, calculate_path_distance, 
 from utils import save_graph, load_graph
 
 def display_menu():
-    """Show the main menu"""
     print("\n" + "="*50)
-    print("   🏫 CAMPUS NAVIGATOR SYSTEM 🏫")
+    print("   CAMPUS NAVIGATOR SYSTEM ")
     print("="*50)
-    print("1. 📍 Add Building")
-    print("2. 🗑 Remove Building")
-    print("3. 🛤 Add Path")
-    print("4. ❌ Remove Path")
-    print("5. 🗺 Display Map")
-    print("6. 🎯 Find Shortest Path")
-    print("7. 🔄 Find All Possible Paths")
-    print("8. 📋 List All Buildings")
-    print("9. 🔍 Check Building Connections")
-    print("10. 💾 Save & Exit")
+    print("1.  Add Building")
+    print("2.  Remove Building")
+    print("3.  Add Path")
+    print("4.  Remove Path")
+    print("5.  Display Map")
+    print("6.  Find Shortest Path")
+    print("7.  Find All Possible Paths")
+    print("8.  List All Buildings")
+    print("9.  Check Building Connections")
+    print("10.  Save & Exit")
     print("="*50)
 
 def list_buildings(graph):
-    """Display all buildings with numbers"""
     buildings = graph.get_all_buildings()
     if not buildings:
-        print("\n⚠ No buildings in the campus yet.")
+        print("\n No buildings in the campus yet.")
         return []
     
-    print("\n📋 BUILDINGS IN CAMPUS:")
+    print("\n BUILDINGS IN CAMPUS:")
     for i, building in enumerate(buildings, 1):
         conn_count = len(graph.graph.get(building, []))
         print(f"   {i}. {building:<20} ({conn_count} connection{'s' if conn_count != 1 else ''})")
     return buildings
 
 def find_shortest_path_interface(graph):
-    """Handle shortest path finding with time estimation"""
     buildings = list_buildings(graph)
     if len(buildings) < 2:
-        print("\n⚠ Need at least 2 buildings to find a path.")
+        print("\n Need at least 2 buildings to find a path.")
         return
     
-    print("\n🎯 FIND SHORTEST PATH")
+    print("\n FIND SHORTEST PATH")
     print("-" * 30)
     
     start = input("Enter start building: ").strip().title()
     end = input("Enter destination: ").strip().title()
     
     if start not in graph.graph:
-        print(f"✗ Building '{start}' not found!")
+        print(f" Building '{start}' not found!")
         return
     if end not in graph.graph:
-        print(f"✗ Building '{end}' not found!")
+        print(f" Building '{end}' not found!")
         return
     
     path, distance, minutes, seconds = get_path_details(graph.graph, start, end)
     
     if not path or distance == float('inf'):
-        print(f"\n✗ No path exists from '{start}' to '{end}'!")
+        print(f"\n No path exists from '{start}' to '{end}'!")
         return
     
     print("\n" + "="*50)
-    print("✅ SHORTEST PATH FOUND")
+    print(" SHORTEST PATH FOUND")
     print("="*50)
-    print(f"📍 Route: {' → '.join(path)}")
-    print(f"📏 Total Distance: {distance} meters")
-    print(f"⏱ Estimated Walking Time: {format_time(minutes, seconds)}")
-    print(f"🚶 (Based on average walking speed: 80 m/min or 4.8 km/h)")
+    print(f" Route: {' → '.join(path)}")
+    print(f" Total Distance: {distance} meters")
+    print(f" Estimated Walking Time: {format_time(minutes, seconds)}")
+    print(f" (Based on average walking speed: 80 m/min or 4.8 km/h)")
     print("="*50)
 
 def find_all_paths_interface(graph):
